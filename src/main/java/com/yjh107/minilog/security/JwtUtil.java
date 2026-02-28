@@ -78,4 +78,9 @@ public class JwtUtil implements Serializable {
                         Base64.getDecoder().decode(secret), SignatureAlgorithm.HS256.getJcaName()))
                 .compact();
     }
+
+    public Boolean validateToken(String token, UserDetails userDetails) {
+        String username = getUsernameFromToken(token);
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+    }
 }
