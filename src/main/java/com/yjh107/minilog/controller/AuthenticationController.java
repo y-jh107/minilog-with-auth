@@ -1,5 +1,7 @@
 package com.yjh107.minilog.controller;
 
+import com.yjh107.minilog.dto.AuthenticationRequestDto;
+import com.yjh107.minilog.dto.AuthenticationResponseDto;
 import com.yjh107.minilog.dto.UserResponseDto;
 import com.yjh107.minilog.security.JwtUtil;
 import com.yjh107.minilog.service.UserService;
@@ -14,8 +16,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -42,7 +44,7 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     public ResponseEntity<?> createAuthenticationToken(
-            @ResponseBody AuthenticationRequestDto authRequest) {
+            @RequestBody AuthenticationRequestDto authRequest) {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
