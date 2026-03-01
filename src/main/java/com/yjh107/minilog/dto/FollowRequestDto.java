@@ -1,7 +1,9 @@
 package com.yjh107.minilog.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 /*
@@ -9,6 +11,8 @@ import lombok.NonNull;
     팔로우하는 사람과 팔로우 당하는 사람의 ID 필드를 포함
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class FollowRequestDto {
     @Deprecated(since = "2.0", forRemoval = true)
     @Schema(
@@ -18,7 +22,7 @@ public class FollowRequestDto {
             deprecated = true
     )
     private Long followerId;
-    
+
     @NonNull
     private Long followeeId;
 }
