@@ -38,9 +38,8 @@ public class ArticleController {
     public ResponseEntity<ArticleResponseDto> createArticle(
             @AuthenticationPrincipal MinilogUserDetails userDetails,
             @RequestBody ArticleRequestDto article) {
-        Long userId = article.getAuthorId();
+        ArticleResponseDto createdArticle = articleService.createArticle(article.getContent(), userDetails.getId());
 
-        ArticleResponseDto createdArticle = articleService.createArticle(article.getContent(), userId);
         return ResponseEntity.ok(createdArticle);
     }
 
