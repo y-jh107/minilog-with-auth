@@ -20,7 +20,7 @@ import java.util.List;
     /api/v1/feed 엔드포인트를 통해 접근
  */
 @RestController
-@RequestMapping("/api/v1/feed")
+@RequestMapping("/api/v2/feed")
 public class FeedController {
     private final ArticleService articleService;
 
